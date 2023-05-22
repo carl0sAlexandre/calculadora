@@ -1,0 +1,139 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: grey;
+}
+
+span{
+    color: white;
+    font-size: 30pt;
+}
+
+.calculadora {
+    background-color: black;
+    width: 24vw;
+    height: 95vh;
+    border-radius: 3%;
+    box-shadow: rgb(48, 48, 48) 2px 2px 5px 5px;
+    padding: 10px;
+}
+
+.display {
+    height: 35vh;
+    width: 25vw;
+    max-width: 43ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.calculo_res {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    height: 18vh;
+    width: 24vw;
+}
+
+.preview {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    height: 15vh;
+    width: 24vw;
+}
+
+.apagar {
+    display: flex;
+    align-items: center;
+    height: 6vh;
+    width: 24vw;
+    gap: 20px;
+}
+
+.icone_timer {
+    height: 18px;
+    width: 30px;
+    margin-left: 25px;
+}
+
+.icone_regua {
+    height: 30px;
+    width: 30px;
+}
+
+.icone_calculadora{
+    height: 18px;
+    width: 21px;
+}
+
+.icone_apagar{
+    width: 23px;
+    height: 20px;    
+}
+
+.deletar {
+    display: flex;
+    width: 145px;
+    justify-content: flex-end;
+}
+
+.separando {
+    border-top: 1px solid rgba(77, 77, 77, 0.548);
+    height: 25px;
+}
+
+.numeros_operadores{
+    width: 27vw;
+    height: 50vh;
+}
+
+.botoes{
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15%;
+    width: 550px;
+    height: 335px;
+    gap: 5px;
+}
+
+button{
+    font-size: 18pt;
+    width: 63px;
+    height: 63px;
+    border-radius: 50px;
+    background-color: rgba(24,23,24,255);
+    border: none;
+}
+
+.apagar_botao{
+    background-color: transparent;
+}
+
+.limpar{
+    color: #ec4f50;
+}
+
+.ativo:active {
+    background-color: rgba(88, 88, 88, 0.514);
+    transition: 0.2s;
+}
+
+.operadores {
+    color: #3d842a;
+}
+
+.numeros {
+    color: #f6f5f6;
+}
+
+.igual {
+    background-color: #3d842a;
+}
+
+.igual:active {
+    background-color: #489931;
+}
+

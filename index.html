@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>calculadora</title>
+
+</head>
+
+<body>
+    <div class="calculadora">
+        <div class="display">
+            <div id="calculo_res" class="calculo_res">
+                <span id="teste1" >0</span>
+            </div>
+            <div class="preview">
+                <span id="teste">0</span>
+            </div>
+        </div>
+        <div class="apagar">
+            <img class="icone_timer" width="15px" src="./icones/timer.svg" alt="">
+            <img class="icone_regua" width="45px" src="./icones/regua.svg" alt="">
+            <img class="icone_calculadora" src="./icones/icons8-matemática-30 (1).png" alt="">
+            <div id="apagar" class="deletar" >
+                <button  class="apagar_botao">
+                    <img class="icone_apagar" width="45px" src="./icones/delete_icon-icons.com_72346.svg" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="separando"></div>
+        <div class="numeros_operadores">
+            <div class="botoes">
+                <button id="limpar" class="limpar ativo">C</button>
+                <button id="parentese" class="operadores  ativo">( )</button>
+                <button id="porcentagem" class="operadores ativo">%</button>
+                <button class="operadores ativo sinal" value="/" onclick="receberSinal(event)">÷</button>
+                <button class="numeros ativo" value="7" onclick="receberPrimeiroValor(event)">7</button>
+                <button class="numeros ativo" value="8" onclick="receberPrimeiroValor(event)">8</button>
+                <button class="numeros ativo" value="9" onclick="receberPrimeiroValor(event)">9</button>
+                <button class="operadores ativo sinal" value="x" onclick="receberSinal(event)">x</button>
+                <button class="numeros ativo" value="4" onclick="receberPrimeiroValor(event)">4</button>
+                <button class="numeros ativo" value="5" onclick="receberPrimeiroValor(event)">5</button>
+                <button class="numeros ativo" value="6" onclick="receberPrimeiroValor(event)">6</button>
+                <button class="operadores ativo sinal" value="-" onclick="receberSinal(event)">-</button>
+                <button class="numeros ativo" value="1" onclick="receberPrimeiroValor(event)">1</button>
+                <button class="numeros ativo" value="2" onclick="receberPrimeiroValor(event)">2</button>
+                <button class="numeros ativo" value="3" onclick="receberPrimeiroValor(event)">3</button>
+                <button class="operadores ativo sinal" value="+" onclick="receberSinal(event)">+</button>
+                <button id="negativo" class="numeros ativo" >+/-</button>
+                <button class="numeros ativo" value="0" onclick="receberPrimeiroValor(event)">0</button>
+                <button id="virgula" class="numeros ativo" value=",">,</button>
+                <button id="igual" class="igual" value="resutadoFinal">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
