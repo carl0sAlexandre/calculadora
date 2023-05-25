@@ -24,13 +24,16 @@ function displayContador() {
     if (primeiro_valor != "" ){
         display.innerHTML = primeiro_valor
     }
-    // if (primeiro_valor != "" && tem_parentese) {
-    //     display.innerHTML = "(" + primeiro_valor
-    // }
+    if (primeiro_valor !="" && tem_parentese == true) {
+        display.innerHTML = "(" + primeiro_valor
+    }
     if (sinal != ""){
+        console.log(sinal)
         display.innerHTML += sinal
     }
     if(segundo_valor != ""){
+        console.log(segundo_valor)
+        
         display.innerHTML += segundo_valor
         
     }
@@ -89,10 +92,15 @@ igual.addEventListener("click", function () {
 apagar.addEventListener("click", function (valor) {
     let string = display.innerHTML.toString()
     display.innerHTML = string.substring(0, string.length - 1 )
-    let teste = calculo_res.toString()
-    calculo_res = teste.substring(0, teste.length - 1)
-    console.log(calculo_res)
-    
+
+    let apagar_primeiro_valor = primeiro_valor.toString()
+    primeiro_valor = apagar_primeiro_valor.substring(0, apagar_primeiro_valor.length - 1)
+
+    let apagar_sinal = sinal.toString()
+    sinal = apagar_sinal.substring(0, apagar_sinal.length - 1)
+
+    let apagar_segundo_valor = segundo_valor.toString()
+    segundo_valor = apagar_segundo_valor.substring(0, apagar_segundo_valor.length - 1)
 })
 
 limpar.addEventListener("click", function () {
@@ -106,6 +114,8 @@ limpar.addEventListener("click", function () {
     resultado_final = ""
     display.innerHTML = ""
     tem_virgula = false
+    tem_parentese = false
+    colocar_parentese = ""
 })
 
 porcentagem.addEventListener("click", function () {
@@ -138,6 +148,7 @@ virgula.addEventListener("click", function () {
 
     if (primeiro_valor == "" && !tem_virgula){
         primeiro_valor += "0."
+        
         display.innerHTML = primeiro_valor
     }
     if (segundo_valor != ""){
@@ -152,13 +163,14 @@ virgula.addEventListener("click", function () {
 })
 
 parentese.addEventListener("click", function () {
-    if(!tem_primeiro_valor && !tem_parentese ) {
-        primeiro_valor = "("
-        display.innerHTML += primeiro_valor 
+    if(!tem_primeiro_valor && tem_parentese ) {
+        colocar_parentese = "("
+        display.innerHTML += colocar_parentese    
     }   
-
+    
     if(segundo_valor != "") {
-        segundo_valor = ")"
-        display.innerHTML += segundo_valor 
+        colocar_parentese += ")"
+        display.innerHTML += colocar_parentese 
     }
+    tem_parentese = true
 })
