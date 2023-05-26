@@ -20,24 +20,25 @@ let colocar_parentese = ""
 let tem_parentese = false
 
 function displayContador() {
-    
-    if (primeiro_valor != "" ){
+
+    if (primeiro_valor != "") {
+        console.log(display.innerHTML)
         display.innerHTML = primeiro_valor
     }
-    if (primeiro_valor !="" && tem_parentese == true) {
+    if (primeiro_valor != "" && tem_parentese == true) {
         display.innerHTML = "(" + primeiro_valor
     }
-    if (sinal != ""){
+    if (sinal != "") {
         console.log(sinal)
         display.innerHTML += sinal
     }
-    if(segundo_valor != ""){
-        console.log(segundo_valor)
-        
+    if (segundo_valor != "") {
         display.innerHTML += segundo_valor
-        
+        console.log(display.innerHTML)
+        console.log(segundo_valor)
+
     }
-    
+
 }
 
 function receberPrimeiroValor(valor) {
@@ -45,33 +46,38 @@ function receberPrimeiroValor(valor) {
         calculo_res = ""
         primeiro_valor += valor.target.value
         calculo_res = primeiro_valor
-        primeiro_valor =+ primeiro_valor
+        primeiro_valor = + primeiro_valor
     }
 
     if (tem_primeiro_valor == true) {
         calculo_res = ""
         segundo_valor += valor.target.value
         calculo_res += segundo_valor
-        segundo_valor =+ segundo_valor
+        segundo_valor = + segundo_valor
     }
 }
 
 function receberSinal(operador) {
     sinal = operador.target.value
-    calculo_res += sinal
+    // display.innerHTML += sinal
     tem_primeiro_valor = true
-    display.innerHTML += sinal
+    calculo_res += sinal 
 
 }
 
 igual.addEventListener("click", function () {
-
+    console.log(calculo_res)
     switch (sinal) {
         case "+":
+            console.log(primeiro_valor)
+            console.log(segundo_valor)
+
             resultado_final = parseFloat(primeiro_valor) + parseFloat(segundo_valor)
 
             break;
         case "-":
+            console.log(primeiro_valor)
+            console.log(segundo_valor)
             resultado_final = parseFloat(primeiro_valor) - parseFloat(segundo_valor)
 
             break;
@@ -86,21 +92,29 @@ igual.addEventListener("click", function () {
         default:
             break;
     }
+    console.log(primeiro_valor)
+    primeiro_valor = resultado_final
+    segundo_valor = ""
     preview.innerHTML = resultado_final
+    display.innerHTML = resultado_final
 })
 
 apagar.addEventListener("click", function (valor) {
     let string = display.innerHTML.toString()
-    display.innerHTML = string.substring(0, string.length - 1 )
+    display.innerHTML = string.substring(0, string.length - 1)
 
     let apagar_primeiro_valor = primeiro_valor.toString()
     primeiro_valor = apagar_primeiro_valor.substring(0, apagar_primeiro_valor.length - 1)
 
-    let apagar_sinal = sinal.toString()
-    sinal = apagar_sinal.substring(0, apagar_sinal.length - 1)
+    if (sinal != "") {
+        // let apagar_sinal = sinal.toString()
+        // sinal = apagar_sinal.substring(0, apagar_sinal.length - 1)
+        sinal = ""
+    }
 
     let apagar_segundo_valor = segundo_valor.toString()
     segundo_valor = apagar_segundo_valor.substring(0, apagar_segundo_valor.length - 1)
+
 })
 
 limpar.addEventListener("click", function () {
@@ -141,36 +155,36 @@ negativo.addEventListener("click", function () {
 })
 
 virgula.addEventListener("click", function () {
-    if (!tem_primeiro_valor  && !tem_virgula ) {
+    if (!tem_primeiro_valor && !tem_virgula) {
         primeiro_valor += "."
         display.innerHTML = primeiro_valor
     }
 
-    if (primeiro_valor == "" && !tem_virgula){
+    if (primeiro_valor == "" && !tem_virgula) {
         primeiro_valor += "0."
-        
+
         display.innerHTML = primeiro_valor
     }
-    if (segundo_valor != ""){
+    if (segundo_valor != "") {
         segundo_valor += "."
         display.innerHTML = segundo_valor
     }
     if (segundo_valor == "" && tem_primeiro_valor) {
         segundo_valor += "0."
         display.innerHTML = segundo_valor
-    } 
+    }
 
 })
 
 parentese.addEventListener("click", function () {
-    if(!tem_primeiro_valor && tem_parentese ) {
+    if (!tem_primeiro_valor && tem_parentese) {
         colocar_parentese = "("
-        display.innerHTML += colocar_parentese    
-    }   
-    
-    if(segundo_valor != "") {
+        display.innerHTML += colocar_parentese
+    }
+
+    if (segundo_valor != "") {
         colocar_parentese += ")"
-        display.innerHTML += colocar_parentese 
+        display.innerHTML += colocar_parentese
     }
     tem_parentese = true
 })
