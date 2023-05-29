@@ -18,24 +18,21 @@ let resultado_final = ""
 let calculo_res = ""
 let colocar_parentese = ""
 let tem_parentese = false
+let teste3 = primeiro_valor
 
 function displayContador() {
 
     if (primeiro_valor != "") {
-        console.log(display.innerHTML)
         display.innerHTML = primeiro_valor
     }
     if (primeiro_valor != "" && tem_parentese == true) {
         display.innerHTML = "(" + primeiro_valor
     }
     if (sinal != "") {
-        console.log(sinal)
         display.innerHTML += sinal
     }
     if (segundo_valor != "") {
         display.innerHTML += segundo_valor
-        console.log(display.innerHTML)
-        console.log(segundo_valor)
 
     }
 
@@ -59,25 +56,19 @@ function receberPrimeiroValor(valor) {
 
 function receberSinal(operador) {
     sinal = operador.target.value
-    // display.innerHTML += sinal
     tem_primeiro_valor = true
-    calculo_res += sinal 
+    // display.innerHTML = sinal
+    // calculo_res = sinal
 
 }
 
 igual.addEventListener("click", function () {
-    console.log(calculo_res)
     switch (sinal) {
         case "+":
-            console.log(primeiro_valor)
-            console.log(segundo_valor)
-
             resultado_final = parseFloat(primeiro_valor) + parseFloat(segundo_valor)
 
             break;
         case "-":
-            console.log(primeiro_valor)
-            console.log(segundo_valor)
             resultado_final = parseFloat(primeiro_valor) - parseFloat(segundo_valor)
 
             break;
@@ -92,30 +83,25 @@ igual.addEventListener("click", function () {
         default:
             break;
     }
-    console.log(primeiro_valor)
     primeiro_valor = resultado_final
     segundo_valor = ""
     preview.innerHTML = resultado_final
     display.innerHTML = resultado_final
 })
 
-apagar.addEventListener("click", function (valor) {
-    let string = display.innerHTML.toString()
-    display.innerHTML = string.substring(0, string.length - 1)
-
-    let apagar_primeiro_valor = primeiro_valor.toString()
-    primeiro_valor = apagar_primeiro_valor.substring(0, apagar_primeiro_valor.length - 1)
-
-    if (sinal != "") {
-        // let apagar_sinal = sinal.toString()
-        // sinal = apagar_sinal.substring(0, apagar_sinal.length - 1)
-        sinal = ""
+apagar.addEventListener("click", function () {
+    if(display.innerHTML !== "") {
+        display.innerHTML = display.innerHTML.toString().slice(0, -1)
     }
-
-    let apagar_segundo_valor = segundo_valor.toString()
-    segundo_valor = apagar_segundo_valor.substring(0, apagar_segundo_valor.length - 1)
-
-})
+    if(segundo_valor !== "") {
+      segundo_valor = segundo_valor.toString().slice(0, -1);
+    } else if (sinal !== "") {
+      sinal = "";
+    } else if (primeiro_valor !== "") {
+      primeiro_valor = primeiro_valor.toString().slice(0, -1);
+    }
+    displayContador();
+  });
 
 limpar.addEventListener("click", function () {
     calculo_res = ""
